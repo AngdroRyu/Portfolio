@@ -1,3 +1,29 @@
-git add .github/workflows/deploy.yml
-git commit -m "Add GitHub Pages deploy workflow"
-git push origin main
+name: Deploy Vue 3 Portfolio to GitHub Pages
+
+on:
+  push:
+    branches: [main] # triggers on pushes to main
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      # 1. Check out the code
+      - uses: actions/checkout@v3
+
+      # 2. Install Node.js
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      # 3. Install dependencies
+      - run: npm install
+
+      # 4. Build the Vue app
+      - run: npm run build
+
+      # 5. Deploy the dist folder to gh-pages
+      - uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
