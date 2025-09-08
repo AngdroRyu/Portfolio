@@ -24,6 +24,15 @@ const router = createRouter({
       component: () => import('../views/PixelPainterView.vue'),
     },
   ],
+  scrollBehavior(to, from, savedPosition) {
+    // if browser back/forward, use saved position
+    if (savedPosition) {
+      return savedPosition
+    } else {
+      // always scroll to top
+      return { top: 0 }
+    }
+  },
 })
 
 export default router
