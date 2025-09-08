@@ -8,6 +8,7 @@ const router = createRouter({
       path: '/',
       name: 'home',
       component: HomeView,
+      meta: { title: 'Home - DC Breckle' }, //titles for pages like so
     },
     {
       path: '/about',
@@ -22,10 +23,10 @@ const router = createRouter({
       name: 'PixelPainter',
 
       component: () => import('../views/PixelPainterView.vue'),
+      meta: { title: 'PixelPainter - DC Breckle' },
     },
   ],
   scrollBehavior(to, from, savedPosition) {
-    // if browser back/forward, use saved position
     if (savedPosition) {
       return savedPosition
     } else {
