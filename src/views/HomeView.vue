@@ -46,7 +46,8 @@
           <div class="bg-white rounded-lg shadow p-6 hover:shadow-lg transition">
             <h3 class="text-xl font-semibold mb-2">Pixel Painter</h3>
             <p class="text-gray-600 mb-4">
-              A collaborative pixel art editor built with Vue 3 and WebSockets.
+              A somewhat minimalistic pixel art painting software build with Vue 3 and node.js
+              frontend with a .Net and c# backend.
             </p>
             <router-link to="/PixelPainter" class="text-blue-600 font-semibold hover:underline">
               View Project
