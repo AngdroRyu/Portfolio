@@ -5,5 +5,5 @@ import Navbar from './components/Navbar.vue'
 
 <template>
   <Navbar />
-  <RouterView />
+  <RouterView class="pt-13" />
 </template>

@@ -35,7 +35,7 @@
       <div class="container mx-auto px-6 text-center block mt-12 mb-4">
         <button
           @click="greyScaleFilter"
-          class="ml-4 bg-blue-600 text-white font-semibold px-4 py-2 rounded shadow hover:bg-blue-700 transition"
+          class="ml-4 bg-blue-600 text-white font-semibold px-4 py-2 rounded shadow hover:bg-blue-700 transition my-1"
           :class="greyscale ? 'bg-pink-500 hover:bg-pink-600' : 'bg-blue-600 hover:bg-blue-700'"
         >
           Apply Grayscale Filter
@@ -43,7 +43,7 @@
 
         <button
           @click="sepiaFilter"
-          class="ml-4 bg-blue-600 text-white font-semibold px-4 py-2 rounded shadow hover:bg-blue-700 transition"
+          class="ml-4 bg-blue-600 text-white font-semibold px-4 py-2 rounded shadow hover:bg-blue-700 transition my-1"
           :class="sepia ? 'bg-pink-500 hover:bg-pink-600' : 'bg-blue-600 hover:bg-blue-700'"
         >
           Apply Sepia Filter
@@ -51,27 +51,27 @@
 
         <button
           @click="protanopeFilter"
-          class="ml-4 bg-blue-600 text-white font-semibold px-4 py-2 rounded shadow hover:bg-blue-700 transition"
+          class="ml-4 bg-blue-600 text-white font-semibold px-4 py-2 rounded shadow hover:bg-blue-700 transition my-2"
           :class="prota ? 'bg-pink-500 hover:bg-pink-600' : 'bg-blue-600 hover:bg-blue-700'"
         >
           Apply Protanope Filter
         </button>
         <button
           @click="deuFilter"
-          class="ml-4 bg-blue-600 text-white font-semibold px-4 py-2 rounded shadow hover:bg-blue-700 transition"
+          class="ml-4 bg-blue-600 text-white font-semibold px-4 py-2 rounded shadow hover:bg-blue-700 transition my-2"
           :class="deu ? 'bg-pink-500 hover:bg-pink-600' : 'bg-blue-600 hover:bg-blue-700'"
         >
           Apply Deuteranope Filter
         </button>
         <button
-          class="ml-4 bg-blue-600 text-white font-semibold px-4 py-2 rounded shadow hover:bg-blue-700 transition"
+          class="ml-4 bg-blue-600 text-white font-semibold px-4 py-2 rounded shadow hover:bg-blue-700 transition my-2"
           @click="showTones = !showTones"
           :class="duotone ? 'bg-pink-500 hover:bg-pink-600' : 'bg-blue-600 hover:bg-blue-700'"
         >
           DuoTone
         </button>
 
-        <div v-show="showTones" class="container mx-auto py-1 px-6 text-center md:flex">
+        <div v-show="showTones" class="container mx-auto py-1 px-6 text-center md:flex my-2">
           <h4 class="m-auto">Color 1</h4>
           <h4 class="m-auto">{{ toneOne }}</h4>
           <input
@@ -88,25 +88,28 @@
             v-model="toneTwo"
             class="ml-4 bg-blue-600 text-white font-semibold px-4 py-2 rounded shadow hover:bg-blue-700 transition"
           />
+        </div>
+        <div>
           <button
-            class="ml-4 bg-blue-600 text-white font-semibold px-4 py-2 rounded shadow hover:bg-blue-700 transition"
-            :severity="duotone ? 'primary' : 'secondary'"
+            v-if="showTones"
+            class="ml-4 bg-blue-600 text-white font-semibold px-4 py-2 rounded shadow hover:bg-blue-700 transition w-full my-2"
+            :class="duotone ? 'bg-pink-500 hover:bg-pink-600' : 'bg-blue-600 hover:bg-blue-700'"
             @click="duoToneFilter(toneOne, toneTwo)"
           >
-            Generate
+            Generate duoTone
           </button>
         </div>
       </div>
     </div>
     <!-- About Section -->
     <section class="py-24">
-      <div class="container mx-auto px-6 md:flex md:items-center md:space-x-12">
+      <div class="container mx-auto px-6 md:space-x-12">
         <!-- <img
           src="https://via.placeholder.com/300"
           alt="Profile"
           class="w-48 h-48 rounded-full mx-auto md:mx-0 mb-6 md:mb-0"
         /> -->
-        <div class="text-center md:text-left">
+        <div class="text-left">
           <h2 class="text-3xl font-bold mb-4">About the Project</h2>
           <p class="text-gray-700 leading-relaxed mb-4">
             Pixel Painter is a collaborative pixel art editor with many social media elements.
@@ -116,42 +119,77 @@
             drawing. The back-end was built with .Net 6 and C#. The database used was a Microsoft
             SQL server.
           </p>
+          <h3 class="text-2xl font-bold mb-4">Pixel Painter 1.0</h3>
           <p class="text-gray-700 leading-relaxed mb-4">
-            Version 1.0 was the first version of the project that was built by Ryan Granquist, Alex
-            Such, Riley Dummer, John Nicpon, Jacob Sletten and myself. The focus for version 1.0 was
-            getting the project up and running with the basic features of a pixel art editor with
-            social media elements. We used Google Oauth for secure login, so we did not have to hold
-            on to sensitive information like someone’s password, instead we only had to store the
-            user identifier. The pixi.js library was used to generate canvases as well as any paint
-            that went on the canvas. The drawing functions were done in typescript, when the user
-            was done drawing they could save their art to the database. The art in the gallery was
-            displayed using a canvas element to reduce the load with pixi.js. With Microsoft SQL
-            server we were able to store the art as a string of hex values that made it easy to
-            store and retrieve, we also stored the title of the art, who the artist is, the size of
-            the art in pixels, and the date the art was made. Triggers were used to optimize the
-            database usage, when someone deletes a comment on a piece of art, any additional replies
-            on the comment were then deleted, and when a user deleted their account all comments,
-            likes, and art were deleted as well. Testing for the project was done with Docker and
-            when we were ready to deploy, we used nginx and Digital Ocean to host the project.
+            Version 1.0 was built by Ryan Granquist, Alex Such, Riley Dummer, John Nicpon, Jacob
+            Sletten, and myself. The main focus was to launch the core features of a pixel art
+            editor with social media elements, allowing users to create, save, and share artwork. We
+            implemented secure login using Google OAuth, so sensitive information like passwords did
+            not need to be stored.
           </p>
           <p class="text-gray-700 leading-relaxed mb-4">
-            Version 2.0 our group consisted of Alex Such, Riley Dummer, Aidan Drew, Helmrick Jordan,
-            Jacob Sletten and myself. The main focus for version 2.0 was to improve the user
-            experience and add more features to the pixel art editor. The main goals for the 2.0
-            release were: for multiple artists to be able to work on the same art piece both
-            synchronously and asynchronously, the ability to add filters on art, and administration
-            privileges for the site since they were not added before. To add the ability for
-            multiple artists to collaborate, we needed to rework our database schema since the
-            artist was stored on the art piece, now with the addition on the ContributingArtist
-            table we were able to make that work, although it required the rework of many of the
-            CRUD functionality. While working on the filters for the art, i.e. grayscale, duotone,
-            sepia, one of the members of our group, had suggested that we add the ability to make a
-            filter for colorblind people to use to see the art better. Having found some research
-            papers containing formulas to turn LMS color into colorblind friendly colors, I had made
-            the calculations necessary to turn our hex valued colors into rgb then into lms to do
-            the calculations to turn it into both deuteranope friendly and protanope friendly
-            colors. Above is an example of one of our art pieces with the filter’s buttons enabled,
-            so you can try it for yourself.
+            For version 1.0, I was in charge of all SQL-related functionality and the canvas display
+            on the gallery page. I designed the database schema, implemented most CRUD functions for
+            users, art, and comments, and learned to work around several quirks of Microsoft SQL
+            Server. To improve performance, I created database triggers that reduced server calls
+            and sped up the system by roughly 30%. For displaying saved artwork, I built a loop that
+            decoded the stored hex color grid and drew each pixel on the canvas, using the stored
+            height and width to correctly render the image. This work connected the front-end
+            (Vue.js) through the server (C#/.NET) to the database, ensuring smooth interaction
+            between all layers of the application.
+          </p>
+          <p class="text-gray-700 leading-relaxed mb-4">
+            The front-end used Vue.js 3 with TypeScript, Pixi.js for rendering the canvas and
+            drawing functions, and PrimeFlex for styling. Artwork was stored in a Microsoft SQL
+            Server database as strings of hex color values, along with metadata such as title,
+            artist, size, and creation date. Triggers were used to optimize database operations,
+            including automatic deletion of related comments, likes, and art when a user or comment
+            was removed.
+          </p>
+          <p class="text-gray-700 leading-relaxed mb-4">
+            Testing was performed using Docker, and the application was deployed with Nginx on
+            Digital Ocean.
+          </p>
+          <h3 class="text-2xl font-bold mb-4">Pixel Painter 2.0</h3>
+          <p class="text-gray-700 leading-relaxed mb-4">
+            Version 2.0 included our team of Alex Such, Riley Dummer, Aidan Drew, Helmrick Jordan,
+            Jacob Sletten, and myself. The main focus of this release was to enhance the user
+            experience and add new features, including:
+          </p>
+          <ul class="text-gray-700 leading-relaxed mb-4 list-disc pl-5">
+            <li>
+              Real-time and asynchronous collaboration for multiple artists on the same artwork
+            </li>
+            <li>
+              Advanced art filters (grayscale, sepia, duotone, and colorblind-friendly options)
+            </li>
+            <li>Administration privileges for managing content and users</li>
+          </ul>
+          <p class="text-gray-700 leading-relaxed mb-4">
+            To support collaborative editing, we reworked the database schema by adding a
+            ContributingArtist table and updating CRUD functionality. These changes enabled users to
+            contribute to the same art piece. The new filters included accessibility-focused options
+            using LMS-based color transformations, allowing users with color vision deficiencies to
+            enjoy the art fully.
+          </p>
+          <p class="text-gray-700 leading-relaxed mb-4">
+            For version 2.0, I again led all SQL-related development and also served as the project
+            lead, having proposed this project for the second part of our capstone. With the
+            addition of a new table for collaborative artists, I redesigned parts of the database,
+            updated triggers, and rewrote CRUD functions to handle the new structure.
+          </p>
+          <p class="text-gray-700 leading-relaxed mb-4">
+            I implemented a series of advanced filters for the artwork. For grayscale and sepia, I
+            decoded the stored hex color values to RGB, applied the transformations, and converted
+            them back to hex for display. The duotone filter used a gradient approach, mapping pixel
+            brightness to the gradient. For colorblind accessibility, I converted RGB values to LMS
+            space, applied transformations for protanope and deuteranope-friendly colors using
+            research-based matrices, and converted the results back to RGB and hex for display.
+          </p>
+          <p class="text-gray-700 leading-relaxed mb-4">
+            Later, we added the ability to create GIFs from multiple art pieces. I extended my
+            filter functions to operate on each frame of the GIF, updated CRUD operations, and
+            modified the database to support GIF storage and retrieval.
           </p>
         </div>
       </div>

@@ -61,7 +61,7 @@
         <li>
           <router-link @click="closeMenu" to="/">Home</router-link>
         </li>
-        <li>
+        <!-- <li>
           <router-link @click="closeMenu" to="#projects">Projects</router-link>
         </li>
         <li>
@@ -69,7 +69,7 @@
         </li>
         <li>
           <router-link @click="closeMenu" to="#contact">Contact</router-link>
-        </li>
+        </li> -->
       </ul>
     </div>
   </nav>
@@ -88,9 +88,3 @@ const closeMenu = () => {
   menuOpen.value = false
 }
 </script>
-
-<style scoped>
-body {
-  padding-top: 4rem;
-}
-</style>

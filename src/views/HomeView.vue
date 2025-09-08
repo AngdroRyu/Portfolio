@@ -27,12 +27,13 @@
         <div class="text-center md:text-left">
           <h2 class="text-3xl font-bold mb-4">About Me</h2>
           <p class="text-gray-700 leading-relaxed mb-4">
-            I’m a software engineer with experience in C++, C#, Java, JavaScript, and Vue/React. I
-            love building interactive web apps and learning new tech stacks.
+            I’m a software engineer with experience in front-end (Vue, React, JavaScript,
+            TypeScript), back-end (Node.js, .Net, C#, Rust, C++, Java), and Databases (MySQL,
+            Microsoft SQL server)
           </p>
           <p class="text-gray-700 leading-relaxed">
-            Currently, I focus on creating responsive full-stack projects and contributing to
-            open-source tools.
+            Currently, I focus on creating responsive full-stack projects and improving my
+            programming knowledge
           </p>
         </div>
       </div>
@@ -54,6 +55,17 @@
             </router-link>
           </div>
           <div class="bg-white rounded-lg shadow p-6 hover:shadow-lg transition">
+            <h3 class="text-xl font-semibold mb-2">Virufy Website</h3>
+            <p class="text-gray-600 mb-4">
+              Virufy.org is a non-profit using AI to detect COVID-19 from cough sounds. I am part of
+              their web development team and helped build their site. Our technologies include
+              React, Tailwind CSS, and Next.js.
+            </p>
+            <a href="https://www.virufy.org/" class="text-blue-600 font-semibold hover:underline">
+              View Project
+            </a>
+          </div>
+          <div class="bg-white rounded-lg shadow p-6 hover:shadow-lg transition">
             <h3 class="text-xl font-semibold mb-2">Pharmacy Mock-up</h3>
             <p class="text-gray-600 mb-4">
               A web app to mimic the layout and functionalliy of a pharmacy system made with Vue,
@@ -63,17 +75,6 @@
               href="https://github.com/AngdroRyu/phar"
               class="text-blue-600 font-semibold hover:underline"
             >
-              View Project
-            </a>
-          </div>
-          <div class="bg-white rounded-lg shadow p-6 hover:shadow-lg transition">
-            <h3 class="text-xl font-semibold mb-2">Virufy Website</h3>
-            <p class="text-gray-600 mb-4">
-              Virufy.org is a non-profit using AI to detect COVID-19 from cough sounds. I am part of
-              their web development team and helped build their site. our technologies include
-              React, Tailwind CSS, and Next.js.
-            </p>
-            <a href="https://www.virufy.org/" class="text-blue-600 font-semibold hover:underline">
               View Project
             </a>
           </div>
