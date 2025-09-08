@@ -7,12 +7,12 @@
         <p class="text-lg md:text-2xl mb-8">
           Full-stack developer building modern web apps with Vue, React, and more.
         </p>
-        <router-link
-          to="#projects"
+        <button
           class="inline-block bg-white text-blue-600 font-semibold px-6 py-3 rounded shadow hover:bg-gray-100 transition"
+          @click="scrollToSection"
         >
           View Projects
-        </router-link>
+        </button>
       </div>
     </section>
 
@@ -28,7 +28,7 @@
           <h2 class="text-3xl font-bold mb-4">About Me</h2>
           <p class="text-gray-700 leading-relaxed mb-4">
             I’m a software engineer with experience in C++, C#, Java, JavaScript, and Vue/React. I
-            love building clean, interactive web apps and learning new technologies.
+            love building interactive web apps and learning new tech stacks.
           </p>
           <p class="text-gray-700 leading-relaxed">
             Currently, I focus on creating responsive full-stack projects and contributing to
@@ -39,7 +39,7 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="bg-gray-100 py-24">
+    <section ref="projects" class="bg-gray-100 py-24">
       <div class="container mx-auto px-6">
         <h2 class="text-3xl font-bold text-center mb-12">Projects</h2>
         <div class="grid md:grid-cols-3 gap-8">
@@ -48,14 +48,22 @@
             <p class="text-gray-600 mb-4">
               A collaborative pixel art editor built with Vue 3 and WebSockets.
             </p>
-            <a href="#" class="text-blue-600 font-semibold hover:underline"> View Project </a>
+            <router-link to="/PixelPainter" class="text-blue-600 font-semibold hover:underline">
+              View Project
+            </router-link>
           </div>
           <div class="bg-white rounded-lg shadow p-6 hover:shadow-lg transition">
-            <h3 class="text-xl font-semibold mb-2">Tournament Bracket</h3>
+            <h3 class="text-xl font-semibold mb-2">Pharmacy Mock-up</h3>
             <p class="text-gray-600 mb-4">
-              A web app to create, manage, and display tournament brackets.
+              A web app to mimic the layout and functionalliy of a pharmacy system made with Vue,
+              Node.js, Rust and Microsoft SQL Server. Currently Work in Progress!!!
             </p>
-            <a href="#" class="text-blue-600 font-semibold hover:underline"> View Project </a>
+            <a
+              href="https://github.com/AngdroRyu/phar"
+              class="text-blue-600 font-semibold hover:underline"
+            >
+              View Project
+            </a>
           </div>
           <div class="bg-white rounded-lg shadow p-6 hover:shadow-lg transition">
             <h3 class="text-xl font-semibold mb-2">Virufy Website</h3>
@@ -89,11 +97,12 @@
     </section>
   </div>
 </template>
-
 <script setup>
-// No script logic yet; purely static content for now
-</script>
+import { ref } from 'vue'
 
-<style scoped>
-/* You can add custom scoped styles here if needed */
-</style>
+const projects = ref(null)
+
+function scrollToSection() {
+  projects.value?.scrollIntoView({ behavior: 'smooth' })
+}
+</script>
