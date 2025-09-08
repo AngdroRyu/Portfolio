@@ -35,5 +35,12 @@ const router = createRouter({
     }
   },
 })
+router.afterEach((to) => {
+  if (to.meta && to.meta.title) {
+    document.title = to.meta.title
+  } else {
+    document.title = 'DC Breckle'
+  }
+})
 
 export default router
